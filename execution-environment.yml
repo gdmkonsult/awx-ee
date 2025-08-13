@@ -30,7 +30,6 @@ dependencies:
       - name: redhatinsights.insights
       - name: kubevirt.core
   system: |
-    curl [platform:rpm]
     git-core [platform:rpm]
     python3.12 [platform:rpm]
     python3.12-pip [platform:rpm]
