@@ -48,6 +48,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install ansible-builder
 
+      - name: Create build context
+        run: |
+          docker buildx create --name awx-ee-buildx
+          docker buildx use awx-ee-buildx
+          ansible-builder create -v3 --output-file=Dockerfile
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
