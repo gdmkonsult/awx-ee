@@ -2,7 +2,7 @@
 version: 3
 images:
   base_image:
-    name: quay.io/centos/centos:stream10
+    name: quay.io/centos/centos:stream9
 dependencies:
   python_interpreter:
     package_system: python3.12
@@ -32,6 +32,8 @@ dependencies:
   system: |
     curl [platform:rpm]
     git-core [platform:rpm]
+    python3.12 [platform:rpm]
+    python3.12-pip [platform:rpm]
     python3.12-devel [platform:rpm]
     libcurl-devel [platform:rpm]
     krb5-devel [platform:rpm]
@@ -83,3 +85,4 @@ additional_build_steps:
     - RUN mkdir -p /var/run/receptor
     - RUN git lfs install --system
     - RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && chmod +x get_helm.sh && ./get_helm.sh && curl -fsSL -o /usr/local/bin/kubeadm https://dl.k8s.io/release/v1.29.3/bin/linux/amd64/kubeadm && chmod +x /usr/local/bin/kubeadm
+    - RUN alternatives --install /usr/bin/python python /usr/bin/python3.12 312
