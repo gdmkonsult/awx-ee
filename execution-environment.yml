@@ -77,6 +77,7 @@ dependencies:
     python-ldap
     passlib
     pyvmomi
+    requests
 additional_build_steps:
   append_base:
     - RUN $PYCMD -m pip install -U pip
