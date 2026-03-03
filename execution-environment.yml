@@ -78,6 +78,8 @@ dependencies:
     passlib
     pyvmomi
     requests
+    matplotlib
+    numpy
 additional_build_steps:
   append_base:
     - RUN $PYCMD -m pip install -U pip
